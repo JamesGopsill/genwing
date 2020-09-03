@@ -1,4 +1,7 @@
 node_modules
+.cache/
+dist/
+
 
 # MacOS General
 .DS_Store

@@ -1,9 +1,25 @@
 {
- "scripts": {
-  "start": "yarn run http-server ./app -p 8080"
- },
- "devDependencies": {
-  "http-server": "^0.12.3"
- },
- "dependencies": {}
+  "name": "GenWing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "highlight.js": "^10.1.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "three": "^0.120.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "http-server": "^0.12.3",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.1.1"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "prettify": "prettier --write src/**",
+    "build": "rm -rf docs/ && parcel build src/index.html --out-dir docs/",
+    "start": "http-server docs/"
+  }
 }

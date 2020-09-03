@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Generative Wing Profiles</title>
+		<meta charset="UTF-8" />
+		<meta
+			name="keywords"
+			content="Generative Design, Wings, Node.js, Parcel, Bootstrap, Three.js"
+		/>
+		<meta
+			name="description"
+			content="A tutorial demonstrating how one can automatically generate wing profiles in a defined region."
+		/>
+		<meta name="author" content="James Gopsill" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-light">
+			<a class="navbar-brand" href="#"
+				>Generative Design <small>Wing Profiles</small></a
+			>
+		</nav>
+		<div class="container">
+			<div class="card">
+				<div class="card-header">Generative Wing Profile</div>
+				<div class="card-body" id="viewer"></div>
+				<div class="card-footer">
+					<button class="btn btn-primary" id="generate">Generate</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header">Introduction</div>
+				<div class="card-body">
+					<p>
+						Generative design requires engineers to generate parametric models
+						of their design spaces. We then use generative design algorithms
+						coupled with simulations and post-processing of results against an
+						objective function to explore and define the optimal designs for a
+						given intent. In this blog, we showcase how one can generate code to
+						create a wing profile.
+					</p>
+					<p>
+						In this example, we will be using solely web technologies, namely
+						Three.js to create the model and visualise it in a browser. The
+						operations you will use to create the geometry are very similar to
+						the operations in many other geometric tools (e.g. CAD). They all
+						have Application Programming Interfaces (API) to enable you to
+						script the generation of advanced geometry.
+					</p>
+					<p>
+						Ever wondered how Formula 1 design their complex profiles? Then this
+						gives you a taster.
+					</p>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header">Environment Set-up</div>
+				<div class="card-body">
+					<p>
+						To build this app, you will need to have
+						<a href="https://nodejs.org/en/">Node.js</a> installed on your PC
+						with either NPM (comes with the Node.js install) or Yarn package
+						manager. With these installed, create a folder and open a terminal
+						and your favourite text editor at the folder (I recommend VS Code).
+					</p>
+					<p>Using the terminal, enter:</p>
+					<pre><code>yarn -init y</code></pre>
+					<p>
+						This will create a <code>package.json</code> in the directory
+						containing the details of our project.
+					</p>
+					<p>
+						No we can install our projects' dependencies and development
+						dependencies.
+					</p>
+					<pre><code>yarn add bootstrap jquery popper.js three
+
+yarn add -D parcel-bundler prettier
+</code></pre>
+					<p>
+						You will see a <code>node_modules</code> folder appear in your
+						project folder.
+					</p>
+					<p>
+						Bootstrap, jquery and popper.js provide all the UI elements for
+						building the webpage. Bootstrap is a very popular framework for this
+						and we will be using it sparingly to put some UI around our model.
+					</p>
+					<p>
+						Three (Three.js) is the library will be using to create and
+						visualise our generative wing.
+					</p>
+					<p>
+						To develop our application, we will be using parcel to bundle all
+						our code and its dependencies together so we can easily deploy it on
+						the web, and prettier to clean up the formatting of our code.
+					</p>
+					<p>In our <code>package.json</code>, add the following json to give use quick access to the tools for developing and prettifying our code.</p>
+					<pre><code>"scripts": {
+	"start": "parcel src/index.html",
+	"prettify": "prettier --write src/**"
+}
+</code></pre>
+<p>
+	Now create a <code>.prettierrc.json</code> and add the styling your would like your code to conform. Here are the options we use in this tutorial.
+</p>
+<pre><code>{
+	"semi": false,
+	"useTabs": true,
+	"tabWidth": 2
+}
+</code></pre>
+<p>Now we are all set to start developing our demonstrator.</p>
+				</div>
+			</div>
+
+
+			<div class="card">
+				<div class="card-header">Hello World</div>
+				<div class="card-body">
+					<p>A good place to start is to create some templates that we will be building up from. First, let's create a new folder in our project and name it <code>src</code> and in this folder create two files <code>index.html</code> and <code>main.js</code>.</p>
+					<p>In the <code>index.html</code> file put:</p>
+					<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Hello World&lt;/h1&gt;
+		&lt;script src="./main.js"&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</html>
+</code></pre>
+	</div>
+</div>
+
+		</div>
+
+		<footer>
+			<p class="text-muted">
+				<small
+					>Created by
+					<a href="https://jamesgopsill.github.io/#/">James Gopsill</a> for the
+					<a href="http://www.bristol.ac.uk/engineering/departments/mecheng/"
+						>University of Bristol's</a
+					>
+					Generative Design Course<br />Background research performed by the
+					<a href="https://dmf-lab.co.uk/">Design Manufacturing Futures Lab</a>
+					and
+					<a href="https://cfms.org.uk/">Centre for Modelling and Simulation</a
+					><br />2020</small
+				>
+			</p>
+		</footer>
+		<script src="./main.js"></script>
+	</body>
+</html>
