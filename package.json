@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "prettify": "prettier --write src/**",
-    "build": "rm -rf docs/ && parcel build src/index.html --out-dir docs/",
+    "build": "rm -rf docs/ && parcel build src/index.html --out-dir docs --public-url '.'",
     "start": "http-server docs/"
 	},
 	"marked": {
