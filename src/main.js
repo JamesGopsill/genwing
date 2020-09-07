@@ -3,10 +3,16 @@ import "bootstrap/dist/css/bootstrap.css"
 import "@fortawesome/fontawesome-free/css/all.css"
 import * as THREE from "three"
 import hljs from "highlight.js/lib/core"
-//import javascript from "highlight.js/lib/languages/javascript"
-//import json from "highlight.js/lib/languages/json"
-import "highlight.js/styles/github.css"
+import javascript from "highlight.js/lib/languages/javascript"
 
+import IntroductionMD from "./markdown/introduction.md"
+import SetupMD from "./markdown/setup.md"
+import HelloWorldMD from "./markdown/hello-world.md"
+import BoxMD from "./markdown/box.md"
+import AirfoilPlanesMD from "./markdown/airfoil-planes.md"
+import AirfoilRailsMD from "./markdown/airfoil-rails.md"
+import SurfaceMD from "./markdown/surface.md"
+import NextStepsMD from "./markdown/next-steps.md"
 import {
 	createAirfoilProfile,
 	createLoftLines,
@@ -14,13 +20,10 @@ import {
 } from "./genwing"
 
 import "./style.css"
+import "highlight.js/styles/github.css"
 
 const main = () => {
 	console.log("Hello from Main")
-
-	//hljs.registerLanguage("javascript", javascript)
-	//hljs.registerLanguage("json", json)
-	hljs.initHighlightingOnLoad()
 
 	// Create the scene
 	const scene = new THREE.Scene()
@@ -119,5 +122,19 @@ const setSize = (renderer) => {
 	const height = (width / 4) * 3
 	renderer.setSize(width, height)
 }
+
+// RUNTIME
+
+hljs.registerLanguage("javascript", javascript)
+hljs.initHighlightingOnLoad()
+
+document.getElementById("introduction").innerHTML = IntroductionMD
+document.getElementById("setup").innerHTML = SetupMD
+document.getElementById("hello-world").innerHTML = HelloWorldMD
+document.getElementById("box").innerHTML = BoxMD
+document.getElementById("airfoil-planes").innerHTML = AirfoilPlanesMD
+document.getElementById("airfoil-rails").innerHTML = AirfoilRailsMD
+document.getElementById("surface").innerHTML = SurfaceMD
+document.getElementById("next-steps").innerHTML = NextStepsMD
 
 main()
